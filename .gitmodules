@@ -1,0 +1,3 @@
+[submodule "Small-MongoDB-Redis-Project"]
+	path = Small-MongoDB-Redis-Project
+	url = https://github.com/AlKYala/Small-MongoDB-Redis-Project.git
