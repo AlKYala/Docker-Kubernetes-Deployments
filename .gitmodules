@@ -1,3 +1,6 @@
 [submodule "Small-MongoDB-Redis-Project"]
 	path = Small-MongoDB-Redis-Project
 	url = https://github.com/AlKYala/Small-MongoDB-Redis-Project.git
+[submodule "Kubernetes-Project-Frontend"]
+	path = Kubernetes-Project-Frontend
+	url = https://github.com/AlKYala/Kubernetes-Project-Frontend.git
