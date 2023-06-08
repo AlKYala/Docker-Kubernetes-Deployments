@@ -1,13 +1,24 @@
-Bau diese Images so:
+Warum brauchen wir NGINX im Frontend?
+
+Wenn wir auf unser Frontend zugriefen, wird der requewst von unserem browser gefeuert
+
+Wir wollen aber diesen Reuqest von unsererm Cluster ausgehend, d.h. vom POD des Frontends machen.
+Dafür haben wir die reverse Proxy. Requests die nach /api gehen werden an unseren NGINX webserver weitergeleitet.
+Da sich dieser im Pod fürs frontend, und somit im cluster, befindet, werden die requests so gehandha, als würden diese
+intern vom cluster abgefeuert werden.
+
+Bau diese Images sound pushe sie in dein docker repo:
 
 
-docker build -t alkyala/fullstackdeployment:docker-kubernetes-deployments-backend ../Small-MongoDB-Redis-Project
+docker build -t alkyala/kubernetes-test-backend:latest ../Small-MongoDB-Redis-Project
 
-docker push alkyala/fullstackdeployment:docker-kubernetes-deployments-backend
+docker push alkyala/kubernetes-test-backend:latest
 
-docker build -t alkyala/fullstackdeployment:docker-kubernetes-deployments-frontend ../Kubernetes-Project-Frontend
+# mit -f adressieren wir hier eine file.
 
-docker push alkyala/fullstackdeployment:docker-kubernetes-deployments-frontend
+docker build -f ../Kubernetes-Project-Frontend/dockerfile-kubernetes -t alkyala/kubernetes-test-frontend:latest ../Kubernetes-Project-Frontend
+
+docker push alkyala/kubernetes-test-frontend:latest
 
 Die Pfade sind genau von diesem Pfad aus gedacht.
 Hier werden die auf mein dockerhub reingemacht. Kannst ja wenn du bock hast die version tags aendern.
@@ -24,11 +35,11 @@ denk dran auch die credentials zu ersetzen
 Now run these:
 
 
-sudo kubectl apply -f mongodb-deployment.yml
-sudo kubectl apply -f mongodb-service.yml
-sudo kubectl apply -f redis-deployment.yml
-sudo kubectl apply -f redis-service.yml
-sudo kubectl apply -f backend-deployment.yml
-sudo kubectl apply -f backend-service.yml
-sudo kubectl apply -f frontend-deployment.yml
-sudo kubectl apply -f frontend-service.yml
+kubectl apply -f mongodb-deployment.yml
+kubectl apply -f mongodb-service.yml
+kubectl apply -f redis-deployment.yml
+kubectl apply -f redis-service.yml
+kubectl apply -f backend-deployment.yml
+kubectl apply -f backend-service.yml
+kubectl apply -f frontend-deployment.yml
+kubectl apply -f frontend-service.yml
