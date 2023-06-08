@@ -52,8 +52,8 @@ services:
 
   frontend:
     build:
-      context: ./Kubernetes-Project-Frontend
-      dockerfile: Dockerfile
+      context: ./Kubernetes-Project-Frontend/
+      dockerfile: dockerfile-docker
     depends_on:
       - backend
     ports:
