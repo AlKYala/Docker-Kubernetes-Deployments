@@ -48,3 +48,8 @@ kubectl apply -f backend-deployment.yml
 kubectl apply -f backend-service.yml
 kubectl apply -f frontend-deployment.yml
 kubectl apply -f frontend-service.yml
+
+Wenn du bock auf autoscaling (für back und frontend hast) dann hau noch die autoscaler an:
+
+kubectl apply -f ./autoscaler/backend-autoscaler.yml
+kubectl apply -f ./autoscaler/frontend-autoscaler.yml
