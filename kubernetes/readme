@@ -31,8 +31,7 @@ Dann setze die Secrets
 Secrets setzen:
 
 You'll need to create a Kubernetes Secret for your MongoDB credentials.
-You can do this with the following command:
-kubectl create secret generic mongodb-secret --from-literal=mongo-root-username=<DEIN_USERNAME> --from-literal=mongo-root-password=<DEIN_PASSWORT>
+They are now in the config map for secrets too.
 
 denk dran auch die credentials zu ersetzen
 
@@ -40,7 +39,7 @@ Jetzt solltest du in der Lage sein deine Infra richtig zu deployen. Nimm die hie
 
 Now run these:
 
-
+kubectl apply -f mongo-secret-config-map.yml
 kubectl apply -f mongodb-deployment.yml
 kubectl apply -f mongodb-service.yml
 kubectl apply -f redis-deployment.yml
